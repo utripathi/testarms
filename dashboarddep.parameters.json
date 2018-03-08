@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "eastus"
+    },
+    "resourcegroup": {
+      "value": "SavedSearch"
+    },
+    "subscriptionId": {
+      "value": "74d0a05d-b4eb-4bd9-8f83-24439f9ff063"
+    },
+    "workspace": {
+      "value": "UMARSGroupOMSWS2"
+    },
+    "workspaceapiversion": {
+      "value": "2017-04-26-preview"
+    }
+   
+  }
+}
