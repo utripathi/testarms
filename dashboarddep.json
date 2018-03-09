@@ -6,7 +6,7 @@
             "type": "string",
             "defaultValue": ""
         },
-        "resourcegroupdash": {
+        "resourcegroup": {
             "type": "string",
             "defaultValue": ""
         },
@@ -30,16 +30,16 @@
             "type": "Microsoft.OperationalInsights/workspaces",
             "location": "[parameters('location')]",
             "id": "[Concat('/subscriptions/', parameters('subscriptionId'), '/
-            s/', parameters('resourcegroupdash'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspace'))]",
+            s/', parameters('resourcegroup'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspace'))]",
             "resources": [
                 {
                     "apiVersion": "2015-11-01-preview",
                     "name": "HPE OneView Server Hardware",
                     "type": "views",
                     "location": "[parameters('location')]",
-                    "id": "[Concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', parameters('resourcegroupdash'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspace'),'/views/HPE OneView Server Hardware')]",
+                    "id": "[Concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', parameters('resourcegroup'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspace'),'/views/HPE OneView Server Hardware')]",
                     "dependson": [
-                        "[Concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', parameters('resourcegroupdash'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspace'))]"
+                        "[Concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', parameters('resourcegroup'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspace'))]"
                     ],
                     "properties": {
                         "Id": "HPE OneView Server Hardware",
