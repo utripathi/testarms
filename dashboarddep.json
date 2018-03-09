@@ -6,7 +6,7 @@
             "type": "string",
             "defaultValue": ""
         },
-        "resourcegroup": {
+        "resourcegroupdash": {
             "type": "string",
             "defaultValue": ""
         },
