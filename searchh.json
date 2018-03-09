@@ -1,0 +1,144 @@
+﻿{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "Search-Category": {
+      "type": "string",
+      "defaultValue": "HPE OneView"
+    },
+    //saved searches Display Names.
+    "Search-DisplayNameHPEOVServerHardware": {
+      "type": "string",
+      "defaultValue": "HPE OneView Server Hardwareq"
+    },
+    "Search-DisplayNameHPEOVInterConnect": {
+      "type": "string",
+      "defaultValue": "HPE OneView InterConnectw"
+    },
+    "Search-DisplayNameHPEOVServerProfile": {
+      "type": "string",
+      "defaultValue": "HPE OneView Server Profiled"
+    },
+    "Search-DisplayNameHPEOVLogicalInterConnect": {
+      "type": "string",
+      "defaultValue": "HPE OneView Logical InterConnectc"
+    },
+    "Search-DisplayNameHPEOVAppliance": {
+      "type": "string",
+      "defaultValue": "HPE OneView Appliancex"
+    },
+    //saved searches Queries
+    "Search-Query-ServerHardware": {
+      "type": "string",
+      "defaultValue": "\"HPEOneView_ServerHardware_CL\" by name_s\""
+
+    },
+    "Search-Query-InterConnect": {
+      "type": "string",
+      "defaultValue": "\"HPEOneView_Interconnect_CL\" by name_s\""
+    },
+    "Search-Query-ServerProfile": {
+      "type": "string",
+      "defaultValue": "\"HPEOneView_ServerProfiles_CL\" by name_s\""
+
+    },
+    "Search-Query-LogicalInterConnect": {
+      "type": "string",
+      "defaultValue": "\"HPEOneView_LogicalInterconnect_CL\" by name_s\""
+
+    },
+    "Search-Query-OneViewAppliance": {
+      "type": "string",
+      "defaultValue": "\"HPEOneView_OneViewAppliance_V3_CL\" by applianceName_s\""
+
+    },
+    //Workspace Name . To be entered in parameter.
+    "Workspace-Name": {
+      "type": "string",
+      "defaultValue": "UMARSGroupOMSWS2"
+
+    },
+    //Workspace Location . To be input in Parameter.
+    "Workspace-Location": {
+      "type": "string",
+      "defaultValue": "Central India"
+    }
+  },
+  //Variables for Searches.
+  "variables": {
+    "Search-Name-HPEOVServerHardware": "[toLower(concat(parameters('Search-Category'), '|', parameters('Search-DisplayNameHPEOVServerHardware')))]",
+    "Search-Name-HPEOVInterConnect": "[toLower(concat(parameters('Search-Category'), '|', parameters('Search-DisplayNameHPEOVInterConnect')))]",
+    "Search-Name-HPEOVServerProfile": "[toLower(concat(parameters('Search-Category'), '|', parameters('Search-DisplayNameHPEOVServerProfile')))]",
+    "Search-Name-HPEOVLogicalInterConnect": "[toLower(concat(parameters('Search-Category'), '|', parameters('Search-DisplayNameHPEOVLogicalInterConnect')))]",
+    "Search-Name-HPEOVAppliance": "[toLower(concat(parameters('Search-Category'), '|', parameters('Search-DisplayNameHPEOVAppliance')))]"
+  },
+  //Resources.
+  "resources": [
+    {
+      "name": "[concat(parameters('Workspace-Name'), '/', variables('Search-Name-HPEOVServerHardware'))]",
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
+      "apiVersion": "2017-04-26-preview",
+      "location": "[parameters('Workspace-Location')]",
+      "dependsOn": [],
+      "properties": {
+        "Category": "[parameters('Search-Category')]",
+        "DisplayName": "[parameters('Search-DisplayNameHPEOVServerHardware')]",
+        "Query": "[parameters('Search-Query-ServerHardware')]",
+        "Version": "1"
+      }
+    },
+    {
+      "name": "[concat(parameters('Workspace-Name'), '/', variables('Search-Name-HPEOVInterConnect'))]",
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
+      "apiVersion": "2017-04-26-preview",
+      "location": "[parameters('Workspace-Location')]",
+      "dependsOn": [],
+      "properties": {
+        "Category": "[parameters('Search-Category')]",
+        "DisplayName": "[parameters('Search-DisplayNameHPEOVInterConnect')]",
+        "Query": "[parameters('Search-Query-InterConnect')]",
+        "Version": "1"
+      }
+    },
+    {
+      "name": "[concat(parameters('Workspace-Name'), '/', variables('Search-Name-HPEOVServerProfile'))]",
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
+      "apiVersion": "2017-04-26-preview",
+      "location": "[parameters('Workspace-Location')]",
+      "dependsOn": [],
+      "properties": {
+        "Category": "[parameters('Search-Category')]",
+        "DisplayName": "[parameters('Search-DisplayNameHPEOVServerProfile')]",
+        "Query": "[parameters('Search-Query-ServerProfile')]",
+        "Version": "1"
+      }
+    },
+    {
+      "name": "[concat(parameters('Workspace-Name'), '/', variables('Search-Name-HPEOVLogicalInterConnect'))]",
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
+      "apiVersion": "2017-04-26-preview",
+      "location": "[parameters('Workspace-Location')]",
+      "dependsOn": [],
+      "properties": {
+        "Category": "[parameters('Search-Category')]",
+        "DisplayName": "[parameters('Search-DisplayNameHPEOVLogicalInterConnect')]",
+        "Query": "[parameters('Search-Query-LogicalInterConnect')]",
+        "Version": "1"
+      }
+    },
+    {
+      "name": "[concat(parameters('Workspace-Name'), '/', variables('Search-Name-HPEOVAppliance'))]",
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
+      "apiVersion": "2017-04-26-preview",
+      "location": "[parameters('Workspace-Location')]",
+      "dependsOn": [],
+      "properties": {
+        "Category": "[parameters('Search-Category')]",
+        "DisplayName": "[parameters('Search-DisplayNameHPEOVAppliance')]",
+        "Query": "[parameters('Search-Query-OneViewAppliance')]",
+        "Version": "1"
+      }
+    }
+  ]
+}
+
