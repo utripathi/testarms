@@ -32,7 +32,7 @@
             "id": "[Concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', parameters('resourcegroup'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspace'))]",
             "resources": [
                 {
-                    "apiVersion": "2015-11-01-preview",
+                    "apiVersion": "2015-11-01-preview", 
                     "name": "HPE OneView Server Profile",
                     "type": "views",
                     "location": "[parameters('location')]",
