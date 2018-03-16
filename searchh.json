@@ -6,7 +6,7 @@
       "type": "string",
       "defaultValue": "HPE OneView"
     },
-    //saved searches Display Names.
+    
     "Search-DisplayNameHPEOVServerHardware": {
       "type": "string",
       "defaultValue": "HPE OneView Server Hardwareq"
@@ -27,7 +27,7 @@
       "type": "string",
       "defaultValue": "HPE OneView Appliancex"
     },
-    //saved searches Queries
+    
     "Search-Query-ServerHardware": {
       "type": "string",
       "defaultValue": "\"HPEOneView_ServerHardware_CL\" by name_s\""
@@ -52,19 +52,19 @@
       "defaultValue": "\"HPEOneView_OneViewAppliance_V3_CL\" by applianceName_s\""
 
     },
-    //Workspace Name . To be entered in parameter.
+    
     "Workspace-Name": {
       "type": "string",
       "defaultValue": "UMARSGroupOMSWS2"
 
     },
-    //Workspace Location . To be input in Parameter.
+    
     "Workspace-Location": {
       "type": "string",
       "defaultValue": "Central India"
     }
   },
-  //Variables for Searches.
+  
   "variables": {
     "Search-Name-HPEOVServerHardware": "[toLower(concat(parameters('Search-Category'), '|', parameters('Search-DisplayNameHPEOVServerHardware')))]",
     "Search-Name-HPEOVInterConnect": "[toLower(concat(parameters('Search-Category'), '|', parameters('Search-DisplayNameHPEOVInterConnect')))]",
@@ -72,7 +72,7 @@
     "Search-Name-HPEOVLogicalInterConnect": "[toLower(concat(parameters('Search-Category'), '|', parameters('Search-DisplayNameHPEOVLogicalInterConnect')))]",
     "Search-Name-HPEOVAppliance": "[toLower(concat(parameters('Search-Category'), '|', parameters('Search-DisplayNameHPEOVAppliance')))]"
   },
-  //Resources.
+  
   "resources": [
     {
       "name": "[concat(parameters('Workspace-Name'), '/', variables('Search-Name-HPEOVServerHardware'))]",
